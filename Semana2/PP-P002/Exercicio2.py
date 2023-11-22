@@ -5,7 +5,7 @@ class ToDoList:
     def __init__(self):
         # Inicializa a lista de tarefas e o nome do arquivo
         self.tarefas = []
-        self.arquivo_tarefas = 'tarefas.pkl'
+        self.arquivo_tarefas = 'Semana2/PP-O002/tarefas.pkl'
 
         # Carrega as tarefas do arquivo se ele existir
         if os.path.exists(self.arquivo_tarefas):
@@ -20,7 +20,7 @@ class ToDoList:
     def listar_tarefas(self):
         # Lista as tarefas com seus IDs e status de conclusão
         for i, tarefa in enumerate(self.tarefas, start=1):
-            print(f"{i}. {tarefa}")
+            print(f"{tarefa}")
 
     def registrar_tarefa(self, descricao):
         # Registra uma nova tarefa e exibe mensagem de confirmação
@@ -51,7 +51,7 @@ class ToDoList:
             if 1 <= identificador <= len(self.tarefas):
                 tarefa = self.tarefas[identificador - 1]
                 status_box = tarefa[-3:-1]
-                self.tarefas[identificador - 1] = f"{identificador}.{nova_descricao} [{status_box}]"
+                self.tarefas[identificador - 1] = f"{identificador}. {nova_descricao} {status_box}]"
                 self.salvar_tarefas()
                 print("Tarefa editada com sucesso!!!")
             else:
@@ -78,17 +78,17 @@ while True:
     if opcao == "1":
         todo_list.listar_tarefas()
     elif opcao == "2":
-        descricao = input("Digite a descrição da nova tarefa: ")
+        descricao = input("\nDigite a descrição da nova tarefa: ")
         todo_list.registrar_tarefa(descricao)
     elif opcao == "3":
-        identificador = input("Digite o identificador da tarefa a ser marcada como realizada: ")
+        identificador = input("\nDigite o identificador da tarefa a ser marcada como realizada: ")
         todo_list.marcar_como_realizada(identificador)
     elif opcao == "4":
-        identificador = input("Digite o identificador da tarefa a ser editada: ")
+        identificador = input("\nDigite o identificador da tarefa a ser editada: ")
         nova_descricao = input("Digite a nova descrição da tarefa: ")
         todo_list.editar_tarefa(identificador, nova_descricao)
     elif opcao == "0":
-        print("Saindo do ToDoList. Até logo!")
+        print("\nSaindo do ToDoList. Até logo!")
         break
     else:
         print("Opção inválida. Tente novamente.")

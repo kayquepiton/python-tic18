@@ -5,8 +5,9 @@ class ToDoList:
 
     def listar_tarefas(self):
         # Lista as tarefas com seus IDs e status de conclusão
+        print("\nLista de tarefas: ")
         for i, tarefa in enumerate(self.tarefas, start=1):
-            print(f"{i}. {tarefa}")
+            print(f"{tarefa}")
 
     def registrar_tarefa(self, descricao):
         # Registra uma nova tarefa e exibe mensagem de confirmação
@@ -63,17 +64,17 @@ while True:
     if opcao == "1":
         todo_list.listar_tarefas()
     elif opcao == "2":
-        descricao = input("Digite a descrição da nova tarefa: ")
+        descricao = input("\nDigite a descrição da nova tarefa: ")
         todo_list.registrar_tarefa(descricao)
     elif opcao == "3":
-        identificador = input("Digite o identificador da tarefa a ser marcada como realizada: ")
+        identificador = input("\nDigite o identificador da tarefa a ser marcada como realizada: ")
         todo_list.marcar_como_realizada(identificador)
     elif opcao == "4":
-        identificador = input("Digite o identificador da tarefa a ser editada: ")
+        identificador = input("\nDigite o identificador da tarefa a ser editada: ")
         nova_descricao = input("Digite a nova descrição da tarefa: ")
         todo_list.editar_tarefa(identificador, nova_descricao)
     elif opcao == "0":
-        print("Saindo do ToDoList. Até logo!")
+        print("\nSaindo do ToDoList. Até logo!")
         break
     else:
         print("Opção inválida. Tente novamente.")
