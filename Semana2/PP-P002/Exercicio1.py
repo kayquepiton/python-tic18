@@ -25,10 +25,19 @@ class ToDoList:
                 tarefa = self.tarefas.pop(identificador - 1)
                 self.tarefas.insert(0, tarefa.replace("[ ]", "[x]", 1))
                 print("Tarefa marcada como realizada!!!")
+
+                # Reorganizar os identificadores
+                for i in range(1, len(self.tarefas) + 1):
+                    if i != identificador:
+                        self.tarefas[i - 1] = self.tarefas[i - 1].replace(f"[{i}]", f"[{i + 1}]", 1)
+                self.tarefas[0] = self.tarefas[0].replace("[1]", "[1]", 1)
+
             else:
                 print("Identificador inválido.")
         except ValueError:
             print("Por favor, insira um identificador válido.")
+
+
 
     def editar_tarefa(self, identificador, nova_descricao):
         # Edita a descrição de uma tarefa existente
@@ -37,7 +46,7 @@ class ToDoList:
             if 1 <= identificador <= len(self.tarefas):
                 tarefa = self.tarefas[identificador - 1]
                 status_box = tarefa[-3:-1]
-                self.tarefas[identificador - 1] = f"{identificador}.{nova_descricao} [{status_box}]"
+                self.tarefas[identificador - 1] = f"{identificador}. {nova_descricao} {status_box}]"
                 print("Tarefa editada com sucesso!!!")
             else:
                 print("Identificador inválido.")
