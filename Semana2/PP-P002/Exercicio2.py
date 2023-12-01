@@ -88,7 +88,7 @@ while True:
         nova_descricao = input("Digite a nova descrição da tarefa: ")
         todo_list.editar_tarefa(identificador, nova_descricao)
     elif opcao == "0":
-        print("\nSaindo do ToDoList. Até logo! ")
+        print("\nSaindo do ToDoList. Até logo!")
         break
     else:
         print("Opção inválida. Tente novamente.")
