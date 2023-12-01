@@ -17,7 +17,7 @@ EMPREGADOS_INICIAIS = [
         "ano_nascimento": 1985,
         "rg": "789012",
         "ano_admissao": 2018,
-        "salario": 8784.60s
+        "salario": 8784.60
     }
 ]
 
