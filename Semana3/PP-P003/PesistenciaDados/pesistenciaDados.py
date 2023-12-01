@@ -1,14 +1,28 @@
 import json
 import os
 
+# Dados dos empregados incorporados diretamente no código
+EMPREGADOS_INICIAIS = [
+    {
+        "nome": "João",
+        "sobrenome": "Silva",
+        "ano_nascimento": 1990,
+        "rg": "123456",
+        "ano_admissao": 2020,
+        "salario": 7320.50
+    },
+    {
+        "nome": "Maria",
+        "sobrenome": "Santos",
+        "ano_nascimento": 1985,
+        "rg": "789012",
+        "ano_admissao": 2018,
+        "salario": 8784.60
+    }
+]
+
 def carregar_dados(nome_arquivo):
-    try:
-        with open(nome_arquivo, 'r') as arquivo:
-            dados = json.load(arquivo)
-        return dados
-    except FileNotFoundError:
-        print(f"Arquivo '{nome_arquivo}' não encontrado. Criando um novo.")
-        return []
+    return EMPREGADOS_INICIAIS
 
 def salvar_dados(nome_arquivo, dados):
     with open(nome_arquivo, 'w') as arquivo:
